@@ -1,0 +1,85 @@
+\documentclass{article}
+	
+\usepackage[margin = 0.7in]{geometry}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\DeclareMathOperator*{\interior}{int}	
+\DeclareMathOperator*{\cl}{cl}	
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+%\newcommand[1]{\norm}{\left\|{#1}\right\|}
+
+\newcommand{\R}{\mathbb{R}}
+
+\title{MATH 600 Homework 8}
+\author{Sam Hulse}
+
+\begin{document}
+\maketitle
+
+\subsubsection*{Problem 1}
+Let $C_b(\R)$ be the space of real-valued continuous and bounded function on $\R$ endowed with the sup-norm $\|\cdot\|_\infty$. Let $B \subset C_b(\R)$ be \\
+
+$$B = \{f \in C_b(\R) \mid 0 < f(x) < 2, \forall x \in \R \}$$.
+ 
+Let $(f_n)$ be a convergent sequence of functions which converges to $f_*$ such that $f_*(x) = 2 \forall x \in \R$. Then $f_* \not \in B$, thus $B$ does not contain all of it's limit points, therefore $B$ is not closed.\\
+
+Let $B^c := \{f \in C_b(\R) \mid f(x) \leq 0$ or $f(x) \geq 2\}$. Let $(f_n)$ be a convergent sequence in $B^c$ which converges to $f_*$ where $f_n \leq 0 \ \forall x \in \R
+$ and every $n \in \N$. Since each $f_n$ in $(f_n)$ is continuous, and $(f_n)$ converges uniformly, then $f_* \leq 0 \ \forall x \in \R$. 
+
+\subsubsection*{Problem 2}
+Let $C([0, 1])$ be the space of real-valued continuous functions on $[0, 1]$ endowed with the sup-norm $\|\cdot\|_\infty$. Let $B \subset C([0, 1])$ be \\
+
+$$B = \{f \in C([0, 1]) \mid 0 \leq f(x) \leq 2, \forall x \in [0, 1]\}$$.
+
+Let $(f_n)$ be a convergent sequence of functions in $B$ which converges to $f_*$. Since $(f_n)$ is uniformly convergent, then $f_*$ is continuous. Then for every $n \in \N$ and every $x \in [0, 1]$, $0 \leq f_n(x) \leq 2$. Therefore $0 \leq f_*(x) \leq 2$ for any fixed $x \in [0, 1]$. Therefore $f_* \in B$, thus $B$ is closed.\\
+
+To show that $B$ is not compact, I will demonstrate that it is not necesarily equi-continuous. Since compactness is equivalent to being closed, bounded, and equi-continuous, showing that $B$ is not equicontinuous is sufficient to show that it is not compact. Let $f_n : [0, 1] \rightarrow \R$ be $f_n(x) = x^n$. Since $f_n$ is an exponential function, it is continuous, and since $0 \leq f_n(x) \leq 1 < 2$, $(f_n) \subseteq B$. However, we demonstrated in class that $(f_n)$ is not equi-continuous. Therefore, there exits an $\epsilon > 0$, two sequences $(x_n)$, $(y_n) \in [0, 1]$, and a sequence $(f_n) \in B$ such that $|x_n - y_n| \rightarrow 0$ as $n \rightarrow \infty$ and $\|f_n(x) - f_n(y)\| \geq \epsilon$. Therefore $B$ is not equi-continuous. This shows that $B$ is not compact.
+
+
+\subsubsection*{Problem 3}
+Let $A \subset \R$ be a bounded set, and the set $B \subset C(A, \R)$ be \\
+
+$$B = \{\frac{x^2}{\alpha^2 + x^2} : A \rightarrow \R | \alpha \geq 1 \}.$$
+
+To show that $B$ is equi-continuous, we must show that for every $\epsilon > 0$, there exists a $\delta > 0$ such that $\|f_\alpha(x) - f_\alpha(y)\| < \epsilon$ for every $x, y \in A$ where $d(x, y) < \delta.$ Then for any $f_\alpha \in B$ and $x, y \in A$, we have
+
+$$\|f_\alpha(x) - f_\alpha(y)\| = \left\|\frac{x^2}{\alpha^2 + x^2} - \frac{y^2}{\alpha^2 + y^2}\right\|_\infty < f'(z)|x-y|$$ 
+
+For some $x < z < y$ from the mean value theorem. $f'(z)|x - y| = \frac{2z\alpha^2}{(\alpha^2 + z^2}|x-y|$. Since $A$ is bounded, there exits a constant $N$ such that $|z| \leq N$ for every $x, y \in A$. Therefore the expression $\frac{2z\alpha^2}{(\alpha^2 + z^2}$ is bounded by some contant $M$. We can then say $f'(z)|x - y| < M|x-y|$ for some constant $M$. Combining these statements gives us $\|f_\alpha(x) - f_\alpha(y)\| < M|x - y|$. Let $\delta = \frac{\epsilon}{M}$, then when $|x - y| < \delta, \ \|f_\alpha(x) - f_\alpha(y)\| < M|x-y| < M \frac{\epsilon}{M} = \epsilon$. Therefore $B$ is equi-continuous.
+
+\subsubsection*{Problem 4}
+Consider the space $C([0, 1])$ of real-valued continuous functitons on $[0, 1]$ endowed with the sup-norm $\|\cdot\|_\infty$. Let $B \subset C([0, 1])$ be
+
+$$B = \{f \in C([0, 1]) \mid f \text{ is differentiable on }[0, 1], -1 \leq f'(x) \leq 2, \forall x \in [0, 1], f(0) = 0\}$$
+
+\noindent \textbf{(1):} From the fundamental theorem of calculus, we have
+
+$$f(x) = \int^1_0 f'(x)dx \leq \int^1_0 2dx = 2 + a$$
+
+For some constant $a$, and similarly
+
+$$f(x) = \int^1_0 f'(x)dx \geq \int^1_0 -1dx = -1 + b$$
+
+For some constant $b$. Since we know $f(0) = 0$, we can set $a$ and $b$ equal to $0$. Thus $-1 \leq f(x) \leq 2$, so that $f(x)$ is bounded. Therefore $\|f(x)\|_\infty \leq 2$. This shows that for any $f \in B$, $f(x)$ is bounded under the sup-norm. 
+
+Let $g$ be a limit point of $B$. Then for every $\epsilon > 0$, there exists an $f_0 \in B$ such that $\|f_0(x) - g(x)\|_\infty < \epsilon$. Since $B$ is bounded, $\|f_0\|_\infty < M$ for some constant $M$. Therefore, using the triangle inequality, we have $\|f_0 - g\|_\infty \leq \|f_0\|_\infty + \|f - g\|_\infty < M + \epsilon$. Since $\epsilon$ can be arbirarily small, $M + \epsilon$ is a bound for $\cl B$, thus $\cl B$ is bounded.\\
+
+\noindent \textbf{(2):} From the intermediate value theorem, we have $\|f(x) - f(y)\| \leq |f'(z)|x-y|$ for some $z \in [0, 1]$ such that $x < z < y$. Since $-1 \leq f'(z) \leq 2$, then $\|f'(z)\|_\infty < M$ for some constant $M$. Let $\delta = \frac{\epsilon}{M}$, then when $|x - y| < \delta, \ \|f_\alpha(x) - f_\alpha(y)\| < M|x-y| < M \frac{\epsilon}{M} = \epsilon$. Therefore $B$ is equi-continuous. Since $\cl B$ is bounded by necesity, $\cl B$ is bounded, closed, and equi-continuous, and thus compact.\\
+
+\subsubsection*{Problem 5}
+Let $\R_+ := \{x \in \R | x \geq 0\}$, and consider the sequence of functions $f_n : \R_+ \rightarrow \R$ defined by\\
+
+Let $\delta = \epsilon$. Then, if $|x - y| < \delta, |\frac{x - y}{n} < \delta = \epsilon$ since $n \geq 1$. Therefore for every $\epsilon > 0$ there exits a $\delta > 0$ such that $|x - y| < \delta$ implies that $|f_n(x) - f_n(y)| < \epsilon \ \forall n \in \N$. This shows that $(f_n)$ is equi-continuous.
+
+since, $\max{f(x)} > 1$, then f is bounded.
+
+Let $x = 1$. Then $B_x = \{f(x): f \in (f_n)\} = 1, \frac{1}{2}, \frac{1}{3}...$ Since $0 \not\in B_x$, but is a limit point, then $B_x$ is open, which means it is not compact. Therefore $(f_n)$ is not pointwise compact, which by the Azela-Ascoli Theorem tells us that $(f_n)$ is not compact.
+
+\subsubsection*{Problem 6}
+Let $(f_n)$ be an equi-continuous sequence of functions $f_n : (M, d) \rightarrow \R$, where $(M, d)$ is compact. Suppose that $(f_n)$ converges pointwise to $f_*$ on $M$.\\
+
+Since $(f_n)$ is equi-continuous, then for every $\epsilon > 0$, there exists a $\delta > 0$ such that $|f_n(x), f_n(y)| < \epsilon$ for every $x, y \in M$ where $d(x, y) < \delta.$ Since $(f_n)$ is pointwise convergent, for every fixed $x \in M$, and any $\epsilon > 0$, there exists a $K(\epsilon, x) \in \N$ such that $d(f_n(x), f_*(x)) < \epsilon$ for every $n \geq K(\epsilon, x).$ Let $\epsilon > 0$ be arbitrary. Then there exists a $K \in \N$. Since $M$ is compact, then $\min(f(x))$
+
+Therefore, for every $\epsilon > 0$, there exists a $\delta > 0$ such that $|f_n(x) - f_n(y)| < \epsilon$ for every $x, y \in M$ where $d(x, y) < \delta$.
+\end{document}
+

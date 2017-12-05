@@ -1,0 +1,39 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{MATH 600 Homework 4}
+\author{Sam Hulse}
+
+\begin{document}
+\maketitle
+
+\subsubsection{Problem 1}
+Let $(M, d)$ be a metric space, and $E \subseteq X \subseteq M$,  where $X$ is a totally bounded set. Since $X$ is totally bounded, for every $\epsilon > 0$, there is a finite union of open balls of radius $\epsilon$ which covers $X$. Since $E \subset X$, this collection is also a cover of $E$. Therefore $E$ is totally bounded.
+
+\subsubsection{Problem 2}
+In $\R$, Heine-Borel tells us a compact set is a closed and bounded set. A connected set on $\R$ if and only if for any set $E \subseteq R$, for any $x, y \in E$, $z \in E$ if $x < z < y$. Therefore a connected set in $\R$ is either a closed or open interval $(x, y)$ or $[x, y]$. Therefore a compact and connected set in $\R$ is a closed interval $[x, y]$.
+
+\subsubsection{Problem 3}
+A metric space $(M, d)$ is connected if and only if the only open and closed sets in $M$ are $M$ and the empty set.\\
+
+$(\Rightarrow):$ Let $(M, d)$ be a connected, and suppose there exists a nonempty clopen set $E \subset M$. Then $E^c$ is also nonempty, closed and open and $E \cup E^c = M$. Since both $E$ and $E^c$ are closed, $E = cl(E)$ and $E^c = cl(E^c)$. Therefore $E \cap cl(E^c) = \emptyset$, $cl(E) \cap E^c = \emptyset$, which shows $E$ and $E^c$ are seperated. Since $M$ is the union of two serpated sets, $(M, d)$ is not connected. The contradiction implies that the only clopen sets in a connected space are $M$ and $\emptyset$.\\
+
+$(\Leftarrow):$ Suppose $(M, d)$ is not connected, but the only two clopen sets are $\emptyset$ and $M$. Then there exist two nonempty sets $A$ and $B$ such that $M \subseteq A \cup B$ and $A$ and $B$ are disjoint. Then $M / A = B$
+
+\subsubsection{Problem 4}
+Let $(M, d)$ be a metric space. Fix $x \in M$ and define $f: M \rightarrow \R$ by $f := d(z, x)$. Show that $f$ is continuous on $M$.\\
+
+Let $p \in M$, and $\epsilon > 0$. Then if $d_y(f(p), f(y)) < \epsilon \Rightarrow d_y(d(p, x), d(y, x)) < \epsilon \Rightarrow \sqrt{d(y, x)^2 + d(x, p)^2} < \epsilon \Rightarrow \sqrt{d(y, p)^2} < \epsilon \Rightarrow d(y, p) < \epsilon$. Let $\delta = \epsilon$. Then if $d(y, p) < \delta$, $d_y(f(p), f(y)) < \epsilon$, therefore $f$ is continuous. 
+
+\subsubsection{Problem 5}
+(1): Let $f: \R^2 \rightarrow \R$ be $f(x_1, x_2) = x_1$. Let $\epsilon > 0$ be arbitrary. For any $x \in f($
+
+\subsubsection{Problem 6}
+Let $f: (M, d) \rightarrow (N, \rho)$ be continuous on $M$, and $B \subseteq M$.
+\end{document}
+

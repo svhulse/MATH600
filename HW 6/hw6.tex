@@ -1,0 +1,85 @@
+\documentclass{article}
+	
+\usepackage[margin = 0.7in]{geometry}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\DeclareMathOperator*{\interior}{int}	
+\DeclareMathOperator*{\cl}{cl}	
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{MATH 600 Homework 6}
+\author{Sam Hulse}
+
+\begin{document}
+\maketitle
+
+\subsubsection*{Problem 1}
+\noindent \textbf{(1):} Let $f : (M, d_x) \rightarrow (N, d_y)$ be a continuous function on a metric space $(M, d_x)$ and $A$ be a nonempty set in $M$. \\
+
+Let $p, q \in A$. Since $A \subseteq \cl A\ $, $p, q \in A \Rightarrow p, q \in \cl A$. Since $f$ is uniformly continuous on $\cl A$, then for every $\epsilon > 0$, there exists a $\delta > 0$ such that $d_y(f(p), f(q)) < \epsilon$ for every $p, q \in \cl A$ such that $d(f(p), f(q)) < \delta$. Therefore, since $A \subseteq \cl A$, for every $\epsilon > 0$, we can use the same $\delta$ as we did for $\cl A$ to say that $d(p, q) < \delta$ when $d_y(f(p), f(q)) < \epsilon$ for every $p, q \in A$. This also implies that if $f$ is uniformly continuous on $A$, then $f$ is uniformly continuous on any nonempty subset of $A$.\\
+
+\noindent \textbf{(2):} Let $g: \R^2 \rightarrow \R$ be continuous on $\R^2$. Let $(a, b]$ and $(c, d)$ be two intervals in $\R$. \\
+
+Since $g$ is a continuous function on $R^2$, $g$ is uniformly continuous on a compact subset of $\R^2$. Since $\cl ((a, b] \times (c, d))$ is a closed and bounded subset of $R^n$, then it is compact from Heine-Borel. Therefore $g$ is uniformly continuous on $\cl ((a, b] \times (c, d))$. From part 1, we know this implies $g$ is uniformly continuous on $(a, b] \times (c, d)$.
+
+\subsubsection*{Problem 2}
+Let $f: (M, d) \rightarrow \R^n$ be Lipschitz continuous on $M$, and $f(A)$ be a closed and bounded set in $R^n$ for some set $A \subset M$. Let $g: \R^n \rightarrow \R$ be continuous on $\R^n$. Show that the commposition $g \circ f$ is uniformly continuous on $A$.\\
+
+Since $g$ is continuous on $\R^n$, and $f(A)$ is a compact subset of $\R^n$, then $g$ is uniformly continuous on $f(A)$. Therefore, for every $\epsilon > 0$, there exists a $\gamma > 0$ such that $|g(p) - g(q)| < \epsilon$ for every $p, q \in f(A)$ where $d_{\R^n}(p, q) < \gamma$. Let $\delta = \gamma / K$, where $K$ is the Lipschitz constant of $f$. Then for any $p, q \in M$ such that $d(p, q) < \delta$, $d(f(p), f(q)) \leq K \cdot d(p, q) < K \cdot \delta = \gamma$. Therefore, if $d(p, q) < \delta$, $d_{\R^n}(f(p), f(q)) < \gamma \Rightarrow |f(g(p)) - f(g(q))| < \epsilon$, thus $g \circ f$ is uniformly continuous.
+
+
+\subsubsection*{Problem 3}
+Let $f_n(x) = \sin(nx) / (1 + nx)$, and $A = [0, \infty)$. \\
+
+\noindent \textbf{(1):} Let $f_*(x) = 0, x \in A$. Let $x \in A$ be fixed, and $\epsilon < 0$. Then $d(f_n(x), f_*(x)) = |f_n(x) - 0| = |\sin(nx)/(1+nx)| \leq |1/(1+nx)| = 1 / (1+nx)$. Let $K = (1 - \epsilon) / \epsilon x$ Then in $n > K$, $1/(1+nx) < \epsilon \Rightarrow d(f_n(x), f_*(x)) < \epsilon$. Therefore $(f_n)$ is pointwise convergent.\\
+
+\noindent \textbf{(2):} If $x \in [a, \infty]$, we have $|f_n(x) - f_*(x)| = |f_n(x) - 0| = |f_n(x)| < 1 /(1+na)$.\\
+
+\noindent \textbf{(3):} To demonstrate that $(f_n)$ does not converge uniformly on $[0, \infty]$, we must show there exits an $\epsilon > 0$ such that for any $K \in \N$, there exits an $x_* \in [0, \infty]$\\
+
+\subsubsection*{Problem 4}
+Let $f_n(x) = x^n / (1 + x^n)$, and $A = [0, \infty)$. \\
+
+\noindent \textbf{(1):} Let $f_*(x) = \\
+0 : 0 \leq x < 1, \\
+1/2 : x = 1, \\
+1: x > 1$ \\
+
+\noindent \textbf{(2):} \\
+
+\noindent \textbf{(3):} \\
+
+\subsubsection*{Problem 5}
+Suppose a sequence of continuous function $(f_n)$ converges pointwise to $f_*$ on a compact set $A$. If $f_*$ is continuous on $A$, does this imply that $(f_n)$ always converge uniformly to $f_*$ on $A$?\\
+
+This statement does not hold in general. Take for example the the following function $f : \R \rightarrow \R$ on the compact set $[0, 1]$.
+
+\vspace{1pc}
+
+\centerline{$f_n(x) = \begin{cases} 
+      n \cdot x & x \in [0, \frac{1}{n}]\\
+      2 - n \cdot x & x \in (\frac{1}{n}, \frac{2}{n}]\\
+      0 & x \in (\frac{2}{n}, 1]\\ 
+   \end{cases}$}
+\vspace{1pc}
+
+Let $x \in [0, 1]$ be arbitary. If $x \in (0, 1]$ we can then find some point in the sequence after which $f_n(x)$ is always $0$ by letting $n > 2/x$. If $x = 0$, then $x = n \cdot x = 0$, therefore $f_n \rightarrow f_*(x) = 0$, and $(f_n)$ is pointwise convergent. In each case of $f_n(x)$, it is either a linear function, and thus continuous, or a constant function, thus continuous. At $x = \frac{1}{n}$, $f_n(x) = 1 = n \cdot x = 2 - n \cdot x$. At $x = \frac{2}{n}$, $f_n(x) = 0 = 2 - n \cdot x = 0$. This shows that at the intersections of the cases, $f_n$ has the same value in each case.  Therefore $f_n(x)$ is pointwise continuous on $[0, 1]$. 
+
+However, $(f_n)$ is not uniformly convergent since $\sup_{x\in[0,1]}|f_n(x) - f_*(x)| = \sup_{x\in[0,1]}|f_n(x)| = 1 \ \forall n \in \N$. Therefore there does not exist any $N \in \N$ such that $n \geq N$ implies $|f_n(x) - f_*(x)| \leq \frac{1}{2}$.
+
+\subsubsection*{Problem 6}
+Suppose that each $f_n$ is continuous on the set $A$, and $(f_n)$ converges to $f_*$ uniformly on $A$. Suppose the sequence $(x_n)$ in $A$ converges to $x_* \in A$. Show that $(f_n(x_n))$ converges to $f_*(x_*)$. \\
+
+Let $\epsilon > 0 $ be arbitraty. Since each $f_n$ is continuous, we can choose $\delta > 0$ such that $d(f_n(x_n), f_n(x_*)) < \epsilon / 2$ when $d(x_n, x_*) < \delta$. Since $(x_n)$ is convergent, we can choose $N \in \N$ such that $d(x_n, x_*) < \delta$ when $n \geq N$. Therefore, when $n \geq N$, $d(f_n(x_n), f(x_*)) < \epsilon / 2$.
+
+Since $(f_n)$ conveges uniformly, we can find an $M \in \N$ such that $m \geq M$ implies that $d(f_n(x_*), f_*(x_*)) \leq \epsilon / 2$ for every $x$, and every $m \geq M$. Let $L = \max(N, M)$. From the triangle inquality, we have $d(f_l(x_l), f_*(x_*)) \leq d(f_l(x_l), f_l(x_*)) + d(f_l(x_*), f_*(x_*)) > \epsilon / 2 + \epsilon / 2 = \epsilon$ for any $l \geq L$. Therefore, $(f_n(x_n))$ converges to $f_*(x_*)$.
+
+\subsubsection*{Problem 7}
+Let $f_n: \R \rightarrow \R$ and $g_n : \R \rightarrow \R$ be two sequences of bounded functions that converge uniformly on the set $A$ to $f_*$ and $g_*$, respectively. Show that $(f_n \cdot g_n)$ converges uniformly to $f_* \cdot g_*$ on $A$.\\
+
+Since $f_n$ and $g_n$ are bounded functions on $\R$, there exist a $B_1, B_2$ such that $|f_n(x)| < B_1$ and $|g_n(x)| < B_2$ for all $x \in \R$ and $n \in \N$. Since $(f_n)$ and $(g_n)$ are uniformly convergent, for any $\epsilon > 0$, there exist an $N_1, N_2 \in \N$ such that $|f_n(x) - f_*(x)| \leq \epsilon / 2B_1$ for all $x \in \R$ and $n > N_1$ and $|g_n(x) - g_*(x)| \leq \epsilon / 2B_2$ for all $x \in \R$ and all $n > N_2$. Take $M = \max(N_1, N_2)$. We can then proceed analagously to the sequential case.
+
+$|f_n(x)g_n(x) - f_*(x)g_*(x)| \leq |f_n(x)g_n(x) - f_n(x)g_*(x)| + |f_n(x)g_*(x) - f_*(x)g_*(x)| \leq M|g_n(x) - g_*(x)| + M|f_n(x) - f_*(x)| < M\frac{\epsilon}{2M} + M\frac{\epsilon}{2M} = \epsilon$. Therefore $(f_n \cdot g_n)$ converges uniformly to $f_* \cdot g_*$ on $A$.
+
+\end{document}
+

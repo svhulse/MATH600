@@ -1,0 +1,72 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{MATH 600 Homework 5}
+\author{Sam Hulse}
+
+\begin{document}
+\maketitle
+
+\subsubsection{Problem 1}
+Let $f: M \rightarrow N$ be a continuous function on $M$ and let $A$ be a sequentially compact set in $M$. Let $\{x_n\}$ be a sequence in $f(A)$. Since $f^{-1}f(A) \subseteq A$, $f^{-1}(x_n) \subseteq A$. Since $A$ is sequentially compact, there exits a convergent subsequence of $f^{-1}(x_n)$ in $A$ which coverges to a point $x_*$ in $A$. Since $f$ is continuous, $\lim_{i\to\infty} f^{-1}(x_{n_i}) = x_*$ implies that $f(f^{-1}(x_{n_i})) \subseteq f(x_*) \Rightarrow \{x_{n_i}\} = f(x_*)$. Since $x_* \in A$, $f(x_*) \in f(A)$, thus every sequence in $f(A)$ has a convergent subsequence which converges in $f(A)$.
+
+\subsubsection{Problem 2}
+Let $f: \R \rightarrow \R$ be continuous. Of the four functions\\
+\begin{center}
+(1): $\{x \in \R | f(x) = 0\}$\\
+(2): $\{x \in \R | f(x) > 1\}$\\
+(3): $\{x \in \R | f(x) \geq 0\}$\\
+(4): $\{x \in \R | 0 \leq f(x) \leq 1\}$\\ 
+\end{center}
+
+\noindent Functions (1), (3), and (4) are closed\\
+Functions (1) and (4) are compact\\
+Function (2) is open\\
+From what we are given, we can not necesarily say that any set is connected\\
+
+\subsubsection{Problem 3}
+Let $S^{n-1} := \{\mathbf{x} \in \R^n: ||x||_2 = 1\}$\\
+
+(1):Since $S^{n-1}$ is the inverse image of $f(\mathbf{x}) = 1$, the image of $f$ is the singleton $\{1\}$. Since the singleton set is closed, the reverse image of $\{1\}$ under $f$ is closed as well, therefore $S^{n-1}$ is closed. (Prove that f is continuous)\\
+
+(2): We know from (1) that $S^{n-1}$ is closed, and since we are in a subset of the Euclidean space, we must now show it is also bounded to show compactness. Let $\mathbf{x}, \mathbf{y} \in S^{n-1}$. Then $||x|| = ||y|| = 1 \Rightarrow ||x|| + ||y|| = 2 \Rightarrow ||x|| + ||-y|| = 2$ (since $||-y|| = |-1|||y|| = ||y||$). Therefore, $||x - y|| \leq ||x|| + ||-y|| = 2$. This shows that $d(x, y) \leq 2$ for any $x, y \in S^{n-1}$, thus $S^{n-1}$ is bounded, so that $S^{n-1}$ is compact.\\
+
+(3): If $x \in S^{n-1} \Rightarrow ||x||_2 = 1 \Rightarrow \sqrt{x_1^2 + x_2^2 +...+ x_n^2} = 1 \Rightarrow x_1^2 + x_2^2 +...+ x_n^2 = 1 \Rightarrow x_i \leq 1 \ \forall i \leq n \Rightarrow x_i^p \leq 1 \ \forall i \leq n, \ \forall p \in \N$. Therefore $\sum_{i = 1}^n x_i^p \leq n \ \forall\ \N$. Since $|x|^{1/p} \leq x \ \forall x \geq 0, (\sum_{i = 1}^n |x_i|^p)^{1/p} \leq n$. Therefore $||x||_p$ is bounded above, and since $||x||_p \in \R$, the supremum exists.\\
+
+(4):\\
+
+(5):\\
+
+\subsubsection{Problem 4}
+Let $f: \R^n \rightarrow \R^n$ be continuous on $\R^n$. Define the function $g: \R^n \rightarrow \R^n \times R^m$ as:
+\centerline{$g(x):= (x, f(x)), \ \forall x \in \R^n$}\\
+
+(1): Let $\{\mathbf{x_n}\}$ be a convergent sequence in $\R^n$ which converges to a point $\mathbf{x_*}$. Then $g(\mathbf{x_n}) = (\mathbf{x_n}, f(\mathbf{x_n}))$. The first function, the identity function is trivialy convergent since $\{\mathbf{x_n}\} \rightarrow \mathbf{x_*}$. We know that the second function, $f(\mathbf{x})$ is continuous, so then $f(\mathbf{x_n})$ converges to $f(\mathbf{x_*})$\\
+
+\noindent (2): Let $S := \{(x, f(x))|x \in \R^n\} \subseteq \R^n \times \R^m$. Since we showed in (1) that $g(x)$ is continuous for all $x \in \R^n$, and $\R^n$ is connected, then the image of $\R^n$ under $g(x)$ is also connected, therefore $S$ is connected. To show that the $S$ is closed, I will use the sequentiall critereon for closed sets. Let $\{x_n, f(x_n)\}$ be a convergent sequence in $S$ which converges to the point $\{x, y\}$. Since $f(x_n) \rightarrow f(x), f(x) = y$. Therefore $\{x_n, f(x_n)\} \rightarrow (x, f(x))$. Because $(x, f(x)) \in S$, the limit of any sequence in $S$ is contained in S. Therefore, $S$ is closed.
+
+
+\subsubsection{Problem 5}
+Let $A$ and $B$ be two path-connected sets in a metic space such that $A \cap B$ is nonempty. Show that $A \cup B$ is path-connected.\\
+
+Two show that $A \cup B$ is path-connected, we must show that for any $x, y \in A \cup B$, there exits a continuous function $h(x): [0, 1] \rightarrow A \cup B$ such that $h(0) = x$, and $h(1) = y$. There are then four cases to consider. The first case if that $x, y \in A \subseteq A \cup B$. Since $A$ is path connected, this case is trivial. The second case if both $x, y \in B$, and once again, the path connectedness of B demonstrates that we can find a path connecting $x$ and $y$.
+
+Now consider the case that $x \in A$ and $y \in B$. Let $z \in A \cap B$. We know this point exists because $A$ and $B$ have a non-empty intersection. Then for every $x \in A$ and every $y \in B$, there exists a continuous function $f: [0, 1] \rightarrow A$ such that $f(0) = x$ and $f(1) = z$ and a continuous function $g: [0, 1] \rightarrow B$ such that $g(0) = y$ and $g(1) = z$. Then define $h : [0, 1] \rightarrow A \cup B$ as:\\
+
+
+\centerline{$h(x) = \begin{cases} 
+      f(2x) & 0 \leq x/2 \leq 1/2\\
+      g(2x - 1) & 1/2 < x/2 \leq 1\\ 
+   \end{cases}$}
+\vspace{1pc}
+Then we have $h(0) = x$ and $h(1) = y$. Additionally, since $h(x)$ is pointwise continous on $[0, 1]$, $g(x)$ is pointwise continuous on $[0, 1]$ and $f(1) = g(0)$, $h(x)$ is continous on $[0, 1]$.
+
+The case where $x \in B$ and $y \in A$ can be constructed analogously to the previous case. This shows that for any $x, y \in A \cup B$, there exists a continuous function $f: [0, 1] \rightarrow A \cup B$ such that $f(0) = x$ and $f(1) = y$. Therefore $A \cup B$ is path-connected. 
+
+\end{document}
+

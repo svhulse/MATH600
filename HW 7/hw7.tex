@@ -1,0 +1,93 @@
+\documentclass{article}
+	
+\usepackage[margin = 0.7in]{geometry}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\DeclareMathOperator*{\interior}{int}	
+\DeclareMathOperator*{\cl}{cl}	
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+
+\title{MATH 600 Homework 6}
+\author{Sam Hulse}
+
+\begin{document}
+\maketitle
+
+\subsubsection*{Problem 1}
+Let $f_n : [1, 2] \rightarrow \R$ be $f_n(x) = \frac{x}{(x+1)^n}$.\\
+
+\noindent \textbf{(1):} Since $f$ is defined on a compact set which maps to $\R$, the min-max theorem tells us that $f_n$ for every $n \in \N \geq 1$. For any $n, x$, $f_n$ achieves its maximum at 1. Thus $\max_{x \in [1, 2]} f_n(x) = \frac{1}{2^n}$. Then, since $\sum_{n = 1}^\infty \frac{1}{2^n}$ is a convergent geometric series, the Weierstrass M-Test tells us that $\sum_{n = 1}^\infty f_n$ converges uniformly on $[1, 2]$. \\
+
+\noindent \textbf{(2):} Since $f_n$ is continuous on $[1, 2]$, and the series $\sum_{n = 1}^\infty f_n$ converges uniformly on $[1, 2]$, then $\int_1^2 \left(\sum_{n - 1}^\infty f_n(x)\right)dx = \sum_{n - 1}^\infty \left( \int_1^2 f_n(x)\right)dx$. This is a direct implication of the corollary to the proof that the integral of a uniformly convergent function is equal to the integral of its limiting function. \\
+
+\subsubsection*{Problem 2}
+Let $A = [-a, a] \subset \R$ with $a > 0$, and let \\
+
+\centerline{$f_n(x) = \frac{{-1}^{n-1}x^{2n-1}}{(2n-1)!}, x \in \R$}
+
+\vspace{1pc}
+
+\noindent \textbf{(1):} \\
+
+\noindent \textbf{(2):} \\
+
+\subsubsection*{Problem 3}
+Let A be a bounded set in $\R$,  and $f_n : \R \rightarrow \R$ be \\
+
+\centerline{$f_n(x) = \frac{(-1)^{n+1}x}{\sqrt{n}}$.}
+
+\vspace{1pc}
+
+\noindent \textbf{(1):} \\
+To show that the series $\sum f_n$ is uniformly convergent, we must show that it is Cauchy.\\
+
+$S_n = \sum_{i = 1}^n \frac{(-1)^{i+1}x}{\sqrt{i}} = x \sum \frac{(-1)^{i+1}}{\sqrt{i}}$
+
+\noindent \textbf{(2):} \\
+
+\subsubsection*{Problem 4}
+Let $f_n : \R \rightarrow \R$ be $f_n(x) = \frac{x}{n^2 + x^2}$. 
+
+\noindent \textbf{(1):} \\
+
+\noindent \textbf{(2):} \\
+
+\subsubsection*{Problem 5}
+Let $(V, ||\cdot||)$ be a complete normed vector space and its induced metric $d(x, y) = ||x - y||$ for $x, y \in V$. Let $f: V \rightarrow V$ be a linear mapping for all $x \in V$.\\
+
+\noindent \textbf{(1):} \\
+
+$\mathbf{(\Rightarrow):}$ If $f$ is a contraction, then for any $x, y \in V$, $d(f(x), f(y)) \leq d(x, y)$. Let $x \in V$ be arbitrary and let $y = 0$. Then $d(f(x), f(y)) \leq C \cdot d(x, y) \Rightarrow ||f(x) - f(y)|| \leq C \cdot ||x - y|| \Rightarrow ||f(x) - f(0)|| \leq C ||x - 0|| \Rightarrow ||f(x)|| \leq C ||x||$. Thus there exists a constant $C$ such that $||f(x)|| \leq C||x||$ for all $x \in V$.\\
+
+$\mathbf{(\Leftarrow):}$ Let $x, y \in V$, since $V$ is closed under scalar multiplication and addition $x + (-1)y = x - y \in V$. Therefore $||f(x-y)|| \leq C||x-y|| \Rightarrow ||f(x) - f(y)|| \leq C||x-y|| \Rightarrow d(f(x), f(y)) \leq C \cdot d(x, y)$. Since $0 < C < 1 \subset [0, 1)$, then f is a contraction.\\
+
+\noindent \textbf{(2):} Since $(V, ||\cdot||)$ is complete, if $f$ is a contraction, then the recursive sequence $x_n = f(x_{n-2})$ is Cauchy, and converges to a fixed point $x_* \in V$, as demonstrated in class. Assume $x_* \neq 0$. Since $f$ is linear and $x_* \neq 0$, then $f(\alpha x_*) = \alpha f(x_*) = \alpha x_*$. Therefore $\alpha x_*$ is also a fixed point of $f$. However, this means that $f$ has multiple fixed points, which contradicts Banach's contraction mapping theorem. Therefore $x_* = 0$.
+
+\subsubsection*{Problem 6}
+Let the constant $K$ satisfy $0 < K < 1$. Consider the linear function $f: \R^2 \rightarrow \R^2$ defined by \\
+
+\centerline{$f(x) = \frac{K}{\sqrt{2}}(x_1 + x_2, x_2 - x_1), \forall x = (x_1, x_2) \in \R^2.$}
+\vspace{1pc}
+
+\noindent \textbf{(1):} With the 2-norm, $f$ is a contraction if there exists a constant $C \in [0, 1)$ such that \\
+
+\centerline{$||f(x) - f(y)||_2 \leq C||x - y||_2 \ \forall x, y \in \R^2.$}
+\vspace{1pc}
+
+Let $z = x - y.$ Since $f$ is a linear function, $||f(x) - f(y)||_2 = ||f(x - y)||_2 = ||f(z)||_2.$ Therefore $||f(x) - f(y)||_2 = \sqrt{\left(\frac{K}{\sqrt{2}}(z_1 + z_2)\right)^2 + \left(\frac{K}{\sqrt{2}}(z_2 - z_1)\right)^2} = \sqrt{\frac{K^2}{2}(z_1^2 + 2z_1 z_2 + z_2^2) + \frac{K^2}{2}(z_2^2 - 2z_1 z_2 + z_1^2)} = \\ \sqrt{\frac{K^2}{2}(z_1^2 + 2z_1 z_2 + z_2^2 + z_2^2 - 2z_1 z_2 + z_1^2)} = \sqrt{\frac{K^2}{2}(2z_1^2 + 2z_2^2)} = \sqrt{K^2(z_1^2 + z_2^2)} = \sqrt{K^2}\sqrt{z_1^2 + z_2^2} = K\sqrt{z_1^2 + z_2^2} = K||z||_2 = K||x - y||_2.$ Therefore, $||f(x) - f(y)||_2 = K||x - y||_2.$\\
+
+Since $K < 1$, we can find a $C$ such that $K \leq C < 1$, then $||f(x) - f(y)||_2 \leq C||x - y||_2$. Therefore, $f$ is a contraction with the 2-norm.\\ 
+
+\noindent \textbf{(2):} With the 1-norm, $f$ is a contraction if there exists a constant $C \in [0, 1)$ such that \\
+
+\centerline{$|f(x) - f(y)| \leq C|x - y| \ \forall x, y \in \R^2.$}
+\vspace{1pc}
+
+Let $z = x - y.$ Since $f$ is a linear function, $||f(x) - f(y)||_1 = ||f(x - y)||_1 = ||f(z)||_1.$ Therefore $||f(x) - f(y)||_1 = |\frac{K}{\sqrt{2}}(z_1 + z_2)| + |\frac{K}{\sqrt{2}}(z_2 - z_1)| = \frac{K}{\sqrt{2}}\left(|z_1 + z_2| + |z_2 - z_1|\right)$ since $K > 0$. Since $K > \frac{1}{\sqrt{2}}$, then $||f(z)||_1 < |z_1 + z_2| + |z_2 - z_1|$ \\
+
+\noindent \textbf{(3):} \\
+
+\noindent \textbf{(4):} Since norms are equivalent, there exists constants $C_1$ and $C_2$ such that $C_1||x||_2 /leq ||x||_1 \leq C_2||x||_2$. Since we know $(x^k)$ is convergent with the 2-norm, then for every $\epsilon > 0$, there exits an $N \in \N$ such that $n \geq N$ implies $||x^n - x_*|| < \epsilon$. Let $\delta = \epsilon / C_2$. Then there exists an $M \in N$ such that $m \geq M$ implies $||x^m - x_*|| < \epsilon / C_2$. Therefore $||x^m - x_*||_1 \leq C_2||x^m - x_*||_2 \leq C_2 \cdot \frac{\epsilon}{C_2} = \epsilon$. Thus $(x^k)$ is convergent under the 1-norm.
+
+\end{document}
+
